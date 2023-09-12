@@ -35,8 +35,10 @@ function Footer() {
                         <a href="#" className="mr-4 hover:text-blue-500">
                             Contact Us
                         </a>
+                        <a href="#" className="mr-4 hover:text-blue-500">
+                            info@kon10dr.com
+                        </a>
                     </nav>
-                    <p className="mb-2">info@kon10dr.com</p>
                     <p className="text-sm">
                         &copy; 2023 Kon10dr Esports Limited. All rights
                         reserved.
