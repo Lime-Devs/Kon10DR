@@ -120,7 +120,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                 <div className="flex flex-col md:flex-row m-10 p-4 items-center">
                     <div className="text-white mb-6 md:mb-0 md:mr-6 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                         <h2 className="text-6xl font-bold mb-4">
-                            mission Statement:
+                            Mission Statement:
                         </h2>
                         <p className="text-2xl">
                             "Our mission is to create an inclusive and dynamic

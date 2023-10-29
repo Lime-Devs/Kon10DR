@@ -15,7 +15,7 @@ function Navbar() {
     const toggleState = (setter) => () => setter((prevState) => !prevState);
 
     return (
-        <div className="relative w-full">
+        <div className="fixed top-0 left-0 w-full z-50">
             <div className="flex justify-between items-center p-4 h-16 bg-black/90">
                 <img
                     src={navbarlogo2}
@@ -25,20 +25,57 @@ function Navbar() {
                         window.location.href = "/";
                     }}
                 />
-                {!nav && (
-                    <HiMenuAlt3
-                        onClick={toggleState(setNav)}
-                        className="z-20 text-white cursor-pointer hover:bg-orange-600 transition duration-300 ease-in-out"
-                        size={50}
-                    />
-                )}
+                {/* Desktop Links */}
+                <div className="hidden md:flex space-x-4 items-center">
+                    {/* PLAY dropdown */}
+                    <div className="relative group">
+                        <span className={`${navMenuStyling} cursor-pointer`}>
+                            PLAY
+                        </span>
+                        <div className="absolute left-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
+                            <PlaySublist />
+                        </div>
+                    </div>
+                    <NavLink href="/News">NEWS</NavLink>
+                    <NavLink href="/Watch">WATCH</NavLink>
+                    {/* PLAYERS dropdown */}
+                    <div className="relative group">
+                        <span className={`${navMenuStyling} cursor-pointer`}>
+                            PLAYERS
+                        </span>
+                        <div className="absolute left-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
+                            <PlayersSublist />
+                        </div>
+                    </div>
+                    {/* MORE dropdown */}
+                    <div className="relative group">
+                        <span className={`${navMenuStyling} cursor-pointer`}>
+                            MORE
+                        </span>
+                        <div className="absolute right-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
+                            <MoreSublist />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Mobile Menu Icon */}
+                <div className="block md:hidden">
+                    {!nav && (
+                        <HiMenuAlt3
+                            onClick={toggleState(setNav)}
+                            className="z-20 text-white cursor-pointer hover:bg-orange-600 transition duration-300 ease-in-out"
+                            size={35}
+                        />
+                    )}
+                </div>
             </div>
 
+            {/* Mobile Menu */}
             {nav && (
                 <div className="fixed left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-20">
                     <ul className="flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter">
                         <li
-                            className={navMenuStyling}
+                            className={`${navMenuStyling} cursor-pointer`}
                             onClick={toggleState(setPlaySublistVisible)}
                         >
                             PLAY
@@ -53,7 +90,7 @@ function Navbar() {
                         </li>
 
                         <li
-                            className={navMenuStyling}
+                            className={`${navMenuStyling} cursor-pointer`}
                             onClick={toggleState(setPlayersSublistVisible)}
                         >
                             PLAYERS
@@ -61,7 +98,7 @@ function Navbar() {
                         {playersSublistVisible && <PlayersSublist />}
 
                         <li
-                            className={navMenuStyling}
+                            className={`${navMenuStyling} cursor-pointer`}
                             onClick={toggleState(setMoreSublistVisible)}
                         >
                             MORE
@@ -73,7 +110,7 @@ function Navbar() {
                         <HiMenuAlt3
                             onClick={toggleState(setNav)}
                             className="text-white cursor-pointer hover:bg-orange-600 transition duration-300 ease-in-out"
-                            size={50}
+                            size={35}
                         />
                     </div>
                 </div>
@@ -100,11 +137,11 @@ const PlaySublist = () => (
 );
 
 const PlayersSublist = () => (
-    <ul>
+    <ul className="space-y-2">
         <li>
             <NavLink href="/Teams">TEAMS</NavLink>
         </li>
-        <li>
+        <li className="whitespace-nowrap">
             <NavLink href="/FreeAgents">FREE AGENTS</NavLink>
         </li>
     </ul>
@@ -112,13 +149,13 @@ const PlayersSublist = () => (
 
 const MoreSublist = () => (
     <ul>
-        <li>
+        <li className="leading-relaxed">
             <NavLink href="/AboutUs">ABOUT US</NavLink>
         </li>
-        <li>
+        <li className="leading-relaxed">
             <NavLink href="/TermsOfUse">TERMS OF USE</NavLink>
         </li>
-        <li>
+        <li className="leading-relaxed">
             <NavLink href="/PrivacyPolicy">PRIVACY POLICY</NavLink>
         </li>
     </ul>
