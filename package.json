@@ -19,7 +19,7 @@
         "wait-on": "^7.0.1"
     },
     "dependencies": {
-        "@esbuild/linux-x64": "^0.19.2",
+        "@esbuild/darwin-arm64": "^0.19.2",
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/progress": "^0.2.7",

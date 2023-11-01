@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('description');
+            $table->text('body');
             $table->binary('image');
             $table->boolean('featured')->default(0);
             $table->boolean('active')->default(false);

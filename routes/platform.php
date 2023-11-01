@@ -11,6 +11,8 @@ use App\Orchid\Screens\Examples\ExampleGridScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Game\GameEditScreen;
+use App\Orchid\Screens\Game\GameListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -102,3 +104,28 @@ Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.ex
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');
+
+
+// Games
+
+
+// Platform > System > Games > Create
+Route::screen('games/create', GameEditScreen::class)
+	 ->name('platform.systems.games.create')
+	 ->breadcrumbs(fn (Trail $trail) => $trail
+		 ->parent('platform.systems.games')
+		 ->push(__('Create'), route('platform.systems.games.create')));
+
+// Platform > System > Games > Game
+Route::screen('games/{game}/edit', GameEditScreen::class)
+	 ->name('platform.systems.games.edit')
+	 ->breadcrumbs(fn (Trail $trail, $game) => $trail
+		 ->parent('platform.systems.games')
+		 ->push($game->title, route('platform.systems.games.edit', $game)));
+
+// Platform > System > Games
+Route::screen('games', GameListScreen::class)
+	 ->name('platform.systems.games')
+	 ->breadcrumbs(fn (Trail $trail) => $trail
+		 ->parent('platform.index')
+		 ->push(__('Games'), route('platform.systems.games')));
