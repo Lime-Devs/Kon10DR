@@ -18,35 +18,41 @@ use Orchid\Support\Facades\Layout;
 
 class GameEditScreen extends Screen
 {
+
 	/**
 	 * @var Game
 	 */
 	public $game;
 
 	/**
-     * Fetch data to be displayed on the screen.
-     *
-     * @return array
-     */
-	public function query(Game $game): array
-	{
+	 * Fetch data to be displayed on the screen.
+	 *
+	 * @return array
+	 */
+	public function query(Game $game)
+	: array {
+
 		return [
 			'game' => $game
 		];
 	}
 
-    /**
-     * The name of the screen displayed in the header.
-     *
-     * @return string|null
-     */
-	public function name(): ?string
+	/**
+	 * The name of the screen displayed in the header.
+	 *
+	 * @return string|null
+	 */
+	public function name()
+	: ?string
 	{
+
 		return $this->game->exists ? 'Edit game' : 'Creating a new game';
 	}
 
-	public function description(): ?string
+	public function description()
+	: ?string
 	{
+
 		return "Games";
 	}
 
@@ -55,7 +61,8 @@ class GameEditScreen extends Screen
 	 *
 	 * @return Link[]
 	 */
-	public function commandBar(): array
+	public function commandBar()
+	: array
 	{
 
 		return [
@@ -75,9 +82,11 @@ class GameEditScreen extends Screen
 	 *
 	 * @return Layout[]
 	 */
-	public function layout(): array
+	public function layout()
+	: array
 	{
-
+		$active = $this->game->active == 1 ? 1 : 0;
+		$featured = $this->game->featured ? 1 : 0;
 		return [
 			Layout::rows([
 							 Input::make('game.name')
@@ -92,11 +101,15 @@ class GameEditScreen extends Screen
 									 ->placeholder('Brief description for preview'),
 
 							 CheckBox::make('active')
-								 ->value($this->game->active == 1 ? 'on' : 'off')
+									 ->sendTrueOrFalse()
+									 ->value($active)
+									 ->checked($active == 1)
 									 ->placeholder('Active'),
 
 							 CheckBox::make('featured')
-								 	->value($this->game->featured == 1 ? 'on' : 'off')
+									 ->sendTrueOrFalse()
+									 ->value($featured)
+									 ->checked($featured == 1)
 									 ->placeholder('Featured'),
 
 							 Picture::make('image')
@@ -121,7 +134,7 @@ class GameEditScreen extends Screen
 		$active = $request->get('active') == 'on';
 		$featured = $request->get('featured') == 'on';
 		$this->game->fill($request->get('game'))
-					->fill(['active' => $active, 'featured' => $featured])
+				   ->fill(['active' => $active, 'featured' => $featured])
 				   ->save();
 
 		Alert::info('You have successfully created a game.');
@@ -134,6 +147,7 @@ class GameEditScreen extends Screen
 	 */
 	public function remove()
 	{
+
 		$this->game->delete();
 
 		Alert::info('You have successfully deleted the game.');
@@ -149,12 +163,11 @@ class GameEditScreen extends Screen
 							   'game.description' => ['required'],
 							   'game.body' => ['required'],
 						   ]);
-		$game->fill($request->get('game'));
-		$active = $request->get('active') == 'on';
-		$featured = $request->get('featured') == 'on';
-		$game->fill(['active' => $active, 'featured' => $featured]);
-		$game->save();
-		dd($_POST, $request->all());
+		$active = $request->get('active') == 1 ? 1 : 0;
+		$featured = $request->get('featured') == 1 ? 1 : 0;
+		$game->fill($request->get('game'))
+			 ->fill(['active' => $active, 'featured' => $featured])
+			 ->save();
 
 		Toast::info(__('Game was saved.'));
 
