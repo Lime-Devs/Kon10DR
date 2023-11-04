@@ -28,17 +28,21 @@ class GameListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', __('Name'))
-                ->sort()
-                ->cantHide()
-                ->filter(Input::make())
-                ->render(fn (Game $game) => new Persona($game->presenter())),
+
+			TD::make('name', __('Name'))
+			  ->sort()
+			  ->cantHide()
+			  ->filter(Input::make())
+			  ->render(fn (Game $game) => Link::make($game->name)
+											  ->route('platform.systems.games.edit', $game->id)),
+
 
             TD::make('description', __('Description'))
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
-				->render(fn (Game $game) => new Persona($game->presenter())),
+				->render(fn (Game $game) => Link::make($game->description)
+											  ->route('platform.systems.games.edit', $game->id)),
 
 
 			TD::make('created_at', __('Created'))

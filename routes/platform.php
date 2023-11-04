@@ -121,7 +121,7 @@ Route::screen('games/{game}/edit', GameEditScreen::class)
 	 ->name('platform.systems.games.edit')
 	 ->breadcrumbs(fn (Trail $trail, $game) => $trail
 		 ->parent('platform.systems.games')
-		 ->push($game->title, route('platform.systems.games.edit', $game)));
+		 ->push($game->name, route('platform.systems.games.edit', $game)));
 
 // Platform > System > Games
 Route::screen('games', GameListScreen::class)

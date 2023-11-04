@@ -3,7 +3,8 @@
 namespace App\Orchid\Screens\Game;
 
 use App\Models\Game;
-use App\Orchid\Layouts\GameListLayout;
+use App\Orchid\Layouts\Game\GameFiltersLayout;
+use App\Orchid\Layouts\Game\GameListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
@@ -17,8 +18,11 @@ class GameListScreen extends Screen
 	 */
 	public function query(): array
 	{
+
 		return [
-			'games' => Game::filters()->defaultSort('id', 'desc')->paginate(),
+			'games' => Game::filters(GameFiltersLayout::class)
+						   ->defaultSort('id', 'desc')
+						   ->paginate(),
 		];
 	}
 

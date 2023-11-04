@@ -77,6 +77,7 @@ class GameEditScreen extends Screen
 	 */
 	public function layout(): array
 	{
+
 		return [
 			Layout::rows([
 							 Input::make('game.name')
@@ -91,11 +92,11 @@ class GameEditScreen extends Screen
 									 ->placeholder('Brief description for preview'),
 
 							 CheckBox::make('active')
-									 ->title('Checkbox')
+								 ->value($this->game->active == 1 ? 'on' : 'off')
 									 ->placeholder('Active'),
 
 							 CheckBox::make('featured')
-									 ->title('Checkbox')
+								 	->value($this->game->featured == 1 ? 'on' : 'off')
 									 ->placeholder('Featured'),
 
 							 Picture::make('image')
@@ -116,11 +117,16 @@ class GameEditScreen extends Screen
 	 */
 	public function createOrUpdate(Request $request)
 	{
-		$this->game->fill($request->get('game'))->save();
+
+		$active = $request->get('active') == 'on';
+		$featured = $request->get('featured') == 'on';
+		$this->game->fill($request->get('game'))
+					->fill(['active' => $active, 'featured' => $featured])
+				   ->save();
 
 		Alert::info('You have successfully created a game.');
 
-		return redirect()->route('platform.game.list');
+		return redirect()->route('platform.systems.games');
 	}
 
 	/**
@@ -132,18 +138,23 @@ class GameEditScreen extends Screen
 
 		Alert::info('You have successfully deleted the game.');
 
-		return redirect()->route('platform.game.list');
+		return redirect()->route('platform.systems.games');
 	}
 
 	public function save(Game $game, Request $request)
 	{
+
 		$request->validate([
 							   'game.name' => ['required'],
 							   'game.description' => ['required'],
 							   'game.body' => ['required'],
 						   ]);
 		$game->fill($request->get('game'));
-
+		$active = $request->get('active') == 'on';
+		$featured = $request->get('featured') == 'on';
+		$game->fill(['active' => $active, 'featured' => $featured]);
+		$game->save();
+		dd($_POST, $request->all());
 
 		Toast::info(__('Game was saved.'));
 
