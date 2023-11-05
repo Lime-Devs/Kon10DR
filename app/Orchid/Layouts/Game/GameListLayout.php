@@ -41,9 +41,20 @@ class GameListLayout extends Table
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
-				->render(fn (Game $game) => Link::make($game->description)
+				->render(fn (Game $game) => Link::make(substr($game->description, 0, 35))
 											  ->route('platform.systems.games.edit', $game->id)),
 
+            TD::make('active', __('Active'))
+                ->sort()
+                ->cantHide()
+				->render(fn (Game $game) => $game->active ? 'Yes' : 'No')
+                ->filter(Input::make()),
+
+			TD::make('featured', __('Featured'))
+                ->sort()
+                ->cantHide()
+				->render(fn (Game $game) => $game->featured ? 'Yes' : 'No')
+                ->filter(Input::make()),
 
 			TD::make('created_at', __('Created'))
                 ->usingComponent(DateTimeSplit::class)
