@@ -5,6 +5,8 @@ namespace App\Orchid\Screens\Game;
 use App\Models\Game;
 use App\Orchid\Screens\Link;
 use Illuminate\Http\Request;
+use Orchid\Attachment\File;
+use Orchid\Screen\Fields\Cropper;
 use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\CheckBox;
@@ -31,6 +33,8 @@ class GameEditScreen extends Screen
 	 */
 	public function query(Game $game)
 	: array {
+
+		$game->load('attachment');
 
 		return [
 			'game' => $game
@@ -85,8 +89,10 @@ class GameEditScreen extends Screen
 	public function layout()
 	: array
 	{
+
 		$active = $this->game->active == 1 ? 1 : 0;
 		$featured = $this->game->featured ? 1 : 0;
+
 		return [
 			Layout::rows([
 							 Input::make('game.name')
@@ -112,9 +118,15 @@ class GameEditScreen extends Screen
 									 ->checked($featured == 1)
 									 ->placeholder('Featured'),
 
-							 Picture::make('image')
-									->title('Picture')
-									->horizontal(),
+							 Cropper::make('image')
+									->targetRelativeUrl(),
+
+							 // Picture::make('image')
+								// 	->title('Picture')
+								// 	->path('games')
+								// 	->help('Upload a picture')
+								// 	->width(300)
+								// 	->horizontal(),
 
 							 Quill::make('game.body')
 								  ->title('Main text'),
@@ -165,9 +177,15 @@ class GameEditScreen extends Screen
 						   ]);
 		$active = $request->get('active') == 1 ? 1 : 0;
 		$featured = $request->get('featured') == 1 ? 1 : 0;
+		$image = $request->get('image');
+
 		$game->fill($request->get('game'))
-			 ->fill(['active' => $active, 'featured' => $featured])
+			 ->fill(['image' => $image, 'active' => $active, 'featured' => $featured])
 			 ->save();
+
+		$game->attachment()->syncWithoutDetaching(
+			$request->input('games.attachment', [])
+		);
 
 		Toast::info(__('Game was saved.'));
 

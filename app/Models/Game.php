@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Orchid\Access\RoleAccess;
 use Orchid\Access\RoleInterface;  // @todo needed?
+use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
@@ -15,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model implements RoleInterface
 {
-	use AsSource, Chartable, Filterable, HasFactory, RoleAccess;
+	use AsSource, Chartable, Filterable, HasFactory, RoleAccess, Attachable;
 	/**
 	 * @var array
 	 */
@@ -46,4 +48,16 @@ class Game extends Model implements RoleInterface
 		'body',
 		'created_at',
 	];
+
+	public function image($game = null)
+	{
+		if (empty($game)) {
+			return null;
+		}
+		$image = $game->attachment()->first();
+		if (empty($image)) {
+			return null;
+		}
+		return $image->url();
+	}
 }
