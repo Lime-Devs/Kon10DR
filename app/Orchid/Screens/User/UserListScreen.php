@@ -24,8 +24,10 @@ class UserListScreen extends Screen
      */
     public function query(): iterable
     {
+		$tableNames = config('permission.table_names');
+		$rolesTable = $tableNames['roles'];
         return [
-            'users' => User::with('roles')
+            'users' => User::with($rolesTable)
                 ->filters(UserFiltersLayout::class)
                 ->defaultSort('id', 'desc')
                 ->paginate(),
