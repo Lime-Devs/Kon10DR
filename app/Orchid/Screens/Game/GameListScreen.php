@@ -5,9 +5,12 @@ namespace App\Orchid\Screens\Game;
 use App\Models\Game;
 use App\Orchid\Layouts\Game\GameFiltersLayout;
 use App\Orchid\Layouts\Game\GameListLayout;
+use Illuminate\Http\Request;
+use Orchid\Platform\Models\User;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Toast;
 
 class GameListScreen extends Screen
 {
@@ -73,5 +76,12 @@ class GameListScreen extends Screen
 		return [
 			'platform.systems.games',
 		];
+	}
+
+	public function remove(Request $request): void
+	{
+		Game::findOrFail($request->get('id'))->delete();
+
+		Toast::info(__('Game was removed'));
 	}
 }
