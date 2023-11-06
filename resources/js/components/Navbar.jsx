@@ -4,6 +4,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
 import NavLink from "./NavLink";
 
+
 function Navbar() {
     const [nav, setNav] = useState(false);
     const [playSublistVisible, setPlaySublistVisible] = useState(false);
@@ -26,7 +27,7 @@ function Navbar() {
                     }}
                 />
                 {/* Desktop Links */}
-                <div className="hidden md:flex space-x-4 items-center">
+                <div className="hidden lg:flex space-x-4 items-center justify-center">
                     {/* PLAY dropdown */}
                     <div className="relative group">
                         <span className={`${navMenuStyling} cursor-pointer`}>
@@ -49,7 +50,7 @@ function Navbar() {
                     </div>
                     {/* MORE dropdown */}
                     <div className="relative group">
-                        <span className={`${navMenuStyling} cursor-pointer`}>
+                    <span className={`${navMenuStyling} cursor-pointer desktop-more`}>
                             MORE
                         </span>
                         <div className="absolute right-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
@@ -57,9 +58,8 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
-
                 {/* Mobile Menu Icon */}
-                <div className="block md:hidden">
+                <div className="block lg:hidden">
                     {!nav && (
                         <HiMenuAlt3
                             onClick={toggleState(setNav)}
