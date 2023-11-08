@@ -16,7 +16,7 @@ export default function Games({ auth, laravelVersion, phpVersion }) {
     };
 
     return (
-        <div className="bg-gray-900 min-h-screen min-w-full flex flex-col items-center justify-center">
+        <div className="bg-gray-900 min-h-screen min-w-full flex flex-col items-center justify-center py-16">
             <Head title="Games" />
             <Navbar />
             <h1 className="text-white text-4xl mb-2">GAMES</h1>

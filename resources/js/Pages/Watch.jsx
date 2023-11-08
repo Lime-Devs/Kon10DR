@@ -24,7 +24,7 @@ export default function Watch({ auth, laravelVersion, phpVersion }) {
     };
 
     return (
-        <div className="bg-gray-900 min-h-screen min-w-full flex flex-col">
+        <div className="bg-gray-900 min-h-screen min-w-full flex flex-col py-16">
             <Head title="Watch" />
             <Navbar />
             <div className="container mx-auto px-4 py-10">

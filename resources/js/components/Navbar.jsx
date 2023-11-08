@@ -50,10 +50,21 @@ function Navbar() {
                     </div>
                     {/* MORE dropdown */}
                     <div className="relative group">
-                    <span className={`${navMenuStyling} cursor-pointer desktop-more`}>
+                        <span
+                            className={`${navMenuStyling} cursor-pointer desktop-more`}
+                            onMouseOver={() => setMoreSublistVisible(true)}
+                            onMouseOut={() => setMoreSublistVisible(false)}
+                        >
                             MORE
                         </span>
-                        <div className="absolute right-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
+                        <div
+                            className={`absolute left-0 lg:left-auto lg:right-0 bg-black/90 rounded-lg p-2 z-10 ${
+                                moreSublistVisible ? "block" : "hidden"
+                            }`}
+                            onMouseOver={() => setMoreSublistVisible(true)}
+                            onMouseOut={() => setMoreSublistVisible(false)}
+                            style={{ top: "100%" }}
+                        >
                             <MoreSublist />
                         </div>
                     </div>
