@@ -4,7 +4,6 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
 import NavLink from "./NavLink";
 
-
 function Navbar() {
     const [nav, setNav] = useState(false);
     const [playSublistVisible, setPlaySublistVisible] = useState(false);

@@ -3,7 +3,7 @@ FROM php:8.1-fpm-alpine
 # Environment arguments
 ARG UID
 ARG GID
-ARG USER
+ARG USER=appuser
 
 ENV UID=${UID}
 ENV GID=${GID}
@@ -13,9 +13,8 @@ ENV USER=${USER}
 RUN delgroup dialout
 
 # Create user and group
-RUN addgroup -g ${GID} --system ${USER}
+RUN if getent group ${GID} ; then echo "Group ${GID} exists"; else addgroup -g ${GID} --system ${USER}; fi
 RUN adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}
-
 # Modify php fpm configuration to use the new user's privileges
 RUN sed -i "s/user = www-data/user = '${USER}'/g" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "s/group = www-data/group = '${USER}'/g" /usr/local/etc/php-fpm.d/www.conf
