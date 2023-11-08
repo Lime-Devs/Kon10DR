@@ -23,6 +23,3 @@ createInertiaApp({
         color: "#4B5563",
     },
 });
-if (document.getElementById("navbar")) {
-    ReactDOM.render(<Navbar />, document.getElementById("navbar"));
-}

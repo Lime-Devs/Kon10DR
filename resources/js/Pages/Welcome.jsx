@@ -1,7 +1,6 @@
 import { Link, Head } from "@inertiajs/react";
 import dashboard2 from "../../images/dashboard2.jpeg";
 import gamingController from "../../images/gamingController.jpg";
-import Navbar from "@/components/Navbar";
 import navbarlogo2 from "../../images/navbarlogo2.png";
 import carousalimage from "../../images/carousalimage.jpg";
 import carousalimage2 from "../../images/carousalimage2.jpg";
@@ -10,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const settings = {
