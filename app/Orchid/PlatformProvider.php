@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Orchid;
 
@@ -12,97 +12,116 @@ use Orchid\Support\Color;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     *
-     * @param Dashboard $dashboard
-     *
-     * @return void
-     */
-    public function boot(Dashboard $dashboard): void
-    {
-        parent::boot($dashboard);
 
-        // ...
-    }
+	/**
+	 * Bootstrap the application services.
+	 *
+	 * @param Dashboard $dashboard
+	 *
+	 * @return void
+	 */
+	public function boot(Dashboard $dashboard)
+	: void {
 
-    /**
-     * Register the application menu.
-     *
-     * @return Menu[]
-     */
-    public function menu(): array
-    {
-        return [
-            Menu::make('Get Started')
-                ->icon('bs.book')
-                ->title('Navigation')
-                ->route(config('platform.index')),
+		parent::boot($dashboard);
 
-            Menu::make('Sample Screen')
-                ->icon('bs.collection')
-                ->route('platform.example')
-                ->badge(fn () => 6),
+		$permissions = ItemPermission::group('modules')
+									 ->addPermission('analytics', 'Access to data analytics')
+									 ->addPermission('monitor', 'Access to the system monitor')
+									 ->addPermission('platform.systems.games', 'Access to the games management system');
 
-            Menu::make('Form Elements')
-                ->icon('bs.card-list')
-                ->route('platform.example.fields')
-                ->active('*/examples/form/*'),
+		$dashboard->registerPermissions($permissions);
+	}
 
-            Menu::make('Overview Layouts')
-                ->icon('bs.window-sidebar')
-                ->route('platform.example.layouts'),
+	/**
+	 * Register the application menu.
+	 *
+	 * @return Menu[]
+	 */
+	public function menu()
+	: array
+	{
 
-            Menu::make('Grid System')
-                ->icon('bs.columns-gap')
-                ->route('platform.example.grid'),
+		return [
+			Menu::make(__('Games'))
+				->icon('bs.people')
+				->route('platform.systems.games')
+				->permission('platform.systems.games')
+				->title(__('Games'))
+				->divider(),
 
-            Menu::make('Charts')
-                ->icon('bs.bar-chart')
-                ->route('platform.example.charts'),
+			Menu::make('Get Started')
+				->icon('bs.book')
+				->title('Navigation')
+				->route(config('platform.index')),
 
-            Menu::make('Cards')
-                ->icon('bs.card-text')
-                ->route('platform.example.cards')
-                ->divider(),
+			Menu::make('Sample Screen')
+				->icon('bs.collection')
+				->route('platform.example')
+				->badge(fn() => 6),
 
-            Menu::make(__('Users'))
-                ->icon('bs.people')
-                ->route('platform.systems.users')
-                ->permission('platform.systems.users')
-                ->title(__('Access Controls')),
+			Menu::make('Form Elements')
+				->icon('bs.card-list')
+				->route('platform.example.fields')
+				->active('*/examples/form/*'),
 
-            Menu::make(__('Roles'))
-                ->icon('bs.shield')
-                ->route('platform.systems.roles')
-                ->permission('platform.systems.roles')
-                ->divider(),
+			Menu::make('Overview Layouts')
+				->icon('bs.window-sidebar')
+				->route('platform.example.layouts'),
 
-            Menu::make('Documentation')
-                ->title('Docs')
-                ->icon('bs.box-arrow-up-right')
-                ->url('https://orchid.software/en/docs')
-                ->target('_blank'),
+			Menu::make('Grid System')
+				->icon('bs.columns-gap')
+				->route('platform.example.grid'),
 
-            Menu::make('Changelog')
-                ->icon('bs.box-arrow-up-right')
-                ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
-                ->target('_blank')
-                ->badge(fn () => Dashboard::version(), Color::DARK),
-        ];
-    }
+			Menu::make('Charts')
+				->icon('bs.bar-chart')
+				->route('platform.example.charts'),
 
-    /**
-     * Register permissions for the application.
-     *
-     * @return ItemPermission[]
-     */
-    public function permissions(): array
-    {
-        return [
-            ItemPermission::group(__('System'))
-                ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
-        ];
-    }
+			Menu::make('Cards')
+				->icon('bs.card-text')
+				->route('platform.example.cards')
+				->divider(),
+
+			Menu::make(__('Users'))
+				->icon('bs.people')
+				->route('platform.systems.users')
+				->permission('platform.systems.users')
+				->title(__('Access Controls')),
+
+			Menu::make(__('Roles'))
+				->icon('bs.shield')
+				->route('platform.systems.roles')
+				->permission('platform.systems.roles')
+				->divider(),
+
+			Menu::make('Documentation')
+				->title('Docs')
+				->icon('bs.box-arrow-up-right')
+				->url('https://orchid.software/en/docs')
+				->target('_blank'),
+
+			Menu::make('Changelog')
+				->icon('bs.box-arrow-up-right')
+				->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
+				->target('_blank')
+				->badge(fn() => Dashboard::version(), Color::DARK),
+		];
+	}
+
+	/**
+	 * Register permissions for the application.
+	 *
+	 * @return ItemPermission[]
+	 */
+	public function permissions()
+	: array
+	{
+
+		return [
+			ItemPermission::group(__('System'))
+						  ->addPermission('platform.systems.roles', __('Roles'))
+						  ->addPermission('platform.systems.users', __('Users'))
+						  ->addPermission('platform.systems.games', __('Games')),
+		];
+	}
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->jsonb('permissions')->nullable();
             $table->timestamps();
         });
-    }
+   }
 
     /**
      * Reverse the migrations.

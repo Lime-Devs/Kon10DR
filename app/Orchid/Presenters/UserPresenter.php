@@ -33,8 +33,9 @@ class UserPresenter extends Presenter implements Personable, Searchable
      */
     public function subTitle(): string
     {
-        $roles = $this->entity->roles->pluck('name')->implode(' / ');
-
+		$tableNames = config('permission.table_names');
+		$rolesTable = $tableNames['roles'];
+		$roles = \DB::table($rolesTable)->pluck('name')->implode(' / ');
         return (string) Str::of($roles)
             ->limit(20)
             ->whenEmpty(fn () => __('Regular User'));
