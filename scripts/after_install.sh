@@ -9,9 +9,10 @@ sudo mv /var/www/html/vite.config.js.prod /var/www/html/vite.config.js
 sudo chown webapp:webapp /var/app/current -R
 php /usr/local/bin/composer install
 sudo npm install vite
-npm install
+sudo npm install
 sudo npm run build
 sudo php artisan cache:clear
 sudo php artisan config:cache
 sudo php artisan route:cache
 sudo php artisan view:cache
+sudo chown webapp:webapp /var/app/current -R
