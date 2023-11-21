@@ -129,3 +129,25 @@ Route::screen('games', GameListScreen::class)
 	 ->breadcrumbs(fn (Trail $trail) => $trail
 		 ->parent('platform.index')
 		 ->push(__('Games'), route('platform.systems.games')));
+
+
+// Platform > System > Tournament > Create
+Route::screen('games/create', TournamentEditScreen::class)
+	 ->name('platform.systems.tournament.create')
+	 ->breadcrumbs(fn (Trail $trail) => $trail
+		 ->parent('platform.systems.tournament')
+		 ->push(__('Create'), route('platform.systems.tournament.create')));
+
+// Platform > System > Games > Game
+Route::screen('games/{game}/edit', TournamentEditScreen::class)
+	 ->name('platform.systems.games.edit')
+	 ->breadcrumbs(fn (Trail $trail, $game) => $trail
+		 ->parent('platform.systems.games')
+		 ->push($game->name, route('platform.systems.games.edit', $game)));
+
+// Platform > System > Games
+Route::screen('games', TournamentListScreen::class)
+	 ->name('platform.systems.games')
+	 ->breadcrumbs(fn (Trail $trail) => $trail
+		 ->parent('platform.index')
+		 ->push(__('Games'), route('platform.systems.games')));

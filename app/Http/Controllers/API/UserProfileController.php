@@ -13,7 +13,7 @@ class UserProfileController extends BaseController
 {
 	public function __construct()
 	{
-		$this->middleware('can:view tournaments', ['only' => ['index','show']]);
+		$this->middleware('can:view profile', ['only' => ['index','show']]);
 	}
 
 	/**

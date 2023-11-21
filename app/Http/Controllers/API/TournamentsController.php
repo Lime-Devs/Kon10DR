@@ -16,9 +16,9 @@ class TournamentsController extends BaseController
 
 		// @todo create profile policy
 		// @todo user only can view or subscribe to tournaments
-		$this->middleware('can:view tournaments', ['only' => ['index','show']]);
+		// $this->middleware('can:view tournaments', ['only' => ['index','show']]);
 		// @todo admin
-		$this->middleware('can:edit tournaments', ['only' => ['create','store','edit','update','destroy']]);
+		// $this->middleware('can:edit tournaments', ['only' => ['create','store','edit','update','destroy']]);
 	}
 
 	/**
@@ -68,7 +68,7 @@ class TournamentsController extends BaseController
 		$tournament = Tournaments::find($id);
 
 		if (is_null($tournament)) {
-			return $this->sendError('Product not found.');
+			return $this->sendError('Tournaments not found.');
 		}
 
 		return $this->sendResponse(new TournamentResource($tournament), 'Tournament retrieved successfully.');

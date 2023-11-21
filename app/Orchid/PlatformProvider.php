@@ -28,7 +28,8 @@ class PlatformProvider extends OrchidServiceProvider
 		$permissions = ItemPermission::group('modules')
 									 ->addPermission('analytics', 'Access to data analytics')
 									 ->addPermission('monitor', 'Access to the system monitor')
-									 ->addPermission('platform.systems.games', 'Access to the games management system');
+									 ->addPermission('platform.systems.games', 'Access to the games management system')
+									 ->addPermission('platform.systems.tournaments', 'Access to the tournaments management system');
 
 		$dashboard->registerPermissions($permissions);
 	}
@@ -48,6 +49,12 @@ class PlatformProvider extends OrchidServiceProvider
 				->route('platform.systems.games')
 				->permission('platform.systems.games')
 				->title(__('Games'))
+				->divider(),
+			Menu::make(__('Tournaments'))
+				->icon('bs.people')
+				->route('platform.systems.tournaments')
+				->permission('platform.systems.tournaments')
+				->title(__('Tournaments'))
 				->divider(),
 
 			Menu::make('Get Started')
