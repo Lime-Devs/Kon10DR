@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
 			$table->string('name');
-			$table->text('detail');
+			$table->text('description')->nullable();
 			$table->binary('image')->nullable();
 			$table->boolean('featured')->default(0);
 			$table->boolean('active')->default(false);

@@ -128,8 +128,8 @@ class TournamentEditScreen extends Screen
 							 // 	->width(300)
 							 // 	->horizontal(),
 
-							 Quill::make('tournament.detail')
-								  ->title('Main text'),
+							 // Quill::make('tournament.detail')
+								//   ->title('Main text'),
 
 						 ])
 		];
@@ -172,7 +172,7 @@ class TournamentEditScreen extends Screen
 
 		$request->validate([
 							   'tournament.name' => ['required'],
-							   'tournament.detail' => ['required'],
+							   'tournament.description' => ['required'],
 						   ]);
 		$active = $request->get('active') == 1 ? 1 : 0;
 		$featured = $request->get('featured') == 1 ? 1 : 0;
@@ -183,7 +183,7 @@ class TournamentEditScreen extends Screen
 			 ->save();
 
 		$tournament->attachment()->syncWithoutDetaching(
-			$request->input('games.attachment', [])
+			$request->input('tournament.attachment', [])
 		);
 
 		Toast::info(__('Tournament was saved.'));
