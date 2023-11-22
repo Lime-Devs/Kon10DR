@@ -46,7 +46,7 @@ class PlatformProvider extends OrchidServiceProvider
 		return [
 			Menu::make(__('Games'))
 				->icon('bs.people')
-				->route('platform.systems.games')
+				// ->route('platform.systems.games')
 				->permission('platform.systems.games')
 				->title(__('Games'))
 				->divider(),

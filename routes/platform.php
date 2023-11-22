@@ -13,9 +13,11 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Game\GameEditScreen;
 use App\Orchid\Screens\Game\GameListScreen;
+use App\Orchid\Screens\Tournament\TournamentListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Tournament\TournamentEditScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -131,23 +133,23 @@ Route::screen('games', GameListScreen::class)
 		 ->push(__('Games'), route('platform.systems.games')));
 
 
-// Platform > System > Tournament > Create
+// Platform > System > Tournaments > Create
 Route::screen('games/create', TournamentEditScreen::class)
-	 ->name('platform.systems.tournament.create')
+	 ->name('platform.systems.tournaments.create')
 	 ->breadcrumbs(fn (Trail $trail) => $trail
-		 ->parent('platform.systems.tournament')
-		 ->push(__('Create'), route('platform.systems.tournament.create')));
+		 ->parent('platform.systems.tournaments')
+		 ->push(__('Create'), route('platform.systems.tournaments.create')));
 
-// Platform > System > Games > Game
-Route::screen('games/{game}/edit', TournamentEditScreen::class)
-	 ->name('platform.systems.games.edit')
+// Platform > System > Tournaments > Tournament
+Route::screen('games/{tournament}/edit', TournamentEditScreen::class)
+	 ->name('platform.systems.tournaments.edit')
 	 ->breadcrumbs(fn (Trail $trail, $game) => $trail
-		 ->parent('platform.systems.games')
-		 ->push($game->name, route('platform.systems.games.edit', $game)));
+		 ->parent('platform.systems.tournaments')
+		 ->push($game->name, route('platform.systems.tournaments.edit', $game)));
 
-// Platform > System > Games
+// Platform > System > Tournaments
 Route::screen('games', TournamentListScreen::class)
-	 ->name('platform.systems.games')
+	 ->name('platform.systems.tournaments')
 	 ->breadcrumbs(fn (Trail $trail) => $trail
 		 ->parent('platform.index')
-		 ->push(__('Games'), route('platform.systems.games')));
+		 ->push(__('Tournaments'), route('platform.systems.tournaments')));
