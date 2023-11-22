@@ -44,18 +44,20 @@ class PlatformProvider extends OrchidServiceProvider
 	{
 
 		return [
-			Menu::make(__('Games'))
-				->icon('bs.people')
-				// ->route('platform.systems.games')
-				->permission('platform.systems.games')
-				->title(__('Games'))
-				->divider(),
+
+
 			Menu::make(__('Tournaments'))
 				->icon('bs.people')
 				->route('platform.systems.tournaments')
 				->permission('platform.systems.tournaments')
 				->title(__('Tournaments'))
 				->divider(),
+
+			Menu::make(__('Games'))
+				->icon('bs.people')
+				->route('platform.systems.games')
+				->permission('platform.systems.games')
+				->title(__('Games')),
 
 			Menu::make('Get Started')
 				->icon('bs.book')
@@ -128,7 +130,8 @@ class PlatformProvider extends OrchidServiceProvider
 			ItemPermission::group(__('System'))
 						  ->addPermission('platform.systems.roles', __('Roles'))
 						  ->addPermission('platform.systems.users', __('Users'))
-						  ->addPermission('platform.systems.games', __('Games')),
+						  ->addPermission('platform.systems.games', __('Games'))
+						  ->addPermission('platform.systems.tournaments', __('Tournaments')),
 		];
 	}
 }

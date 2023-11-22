@@ -12,6 +12,9 @@ use Orchid\Filters\Types\Where;
 use Orchid\Metrics\Chartable;
 use Orchid\Screen\AsSource;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 class Tournament extends Model implements RoleInterface
 {
 	use AsSource, Chartable, Filterable, HasFactory, RoleAccess, Attachable;
