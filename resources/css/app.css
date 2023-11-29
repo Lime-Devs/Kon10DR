@@ -41,3 +41,21 @@
         @apply h-screen max-h-full overflow-y-auto;
     }
 }
+
+@media (max-width: 900px) {
+    .desktop-more {
+        display: none;
+    }
+    .mobile-more {
+        display: block;
+    }
+}
+
+@media (min-width: 901px) {
+    .desktop-more {
+        display: block;
+    }
+    .mobile-more {
+        display: none;
+    }
+}

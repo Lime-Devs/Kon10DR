@@ -11,7 +11,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
         <div className="bg-gray-900 min-h-screen min-w-full flex flex-col">
             <Head title="About Us" />
             <Navbar />
-            <div className="container mx-auto">
+            <div className="container mx-auto py-16">
                 <div className="flex flex-col md:flex-row m-10 p-4 items-center">
                     <div className="text-white mb-6 md:mb-0 md:mr-6 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                         <h2 className="text-6xl font-bold mb-4">
@@ -120,7 +120,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                 <div className="flex flex-col md:flex-row m-10 p-4 items-center">
                     <div className="text-white mb-6 md:mb-0 md:mr-6 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                         <h2 className="text-6xl font-bold mb-4">
-                            mission Statement:
+                            Mission Statement:
                         </h2>
                         <p className="text-2xl">
                             "Our mission is to create an inclusive and dynamic
@@ -149,7 +149,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                     <form className="bg-gray-900 p-6 rounded-md flex-grow">
                         <div className="flex flex-wrap -mx-2 mb-4">
                             {/* First Name Input */}
-                            <div className="w-1/2 px-2">
+                            <div className="w-full px-2 md:w-1/2">
                                 <label
                                     className="block text-white mb-2"
                                     htmlFor="firstName"
@@ -164,7 +164,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                                 />
                             </div>
                             {/* Last Name Input */}
-                            <div className="w-1/2 px-2">
+                            <div className="w-full px-2 md:w-1/2">
                                 <label
                                     className="block text-white mb-2"
                                     htmlFor="lastName"
@@ -182,7 +182,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
 
                         <div className="flex flex-wrap -mx-2 mb-4">
                             {/* Email Input */}
-                            <div className="w-1/2 px-2">
+                            <div className="w-full px-2 md:w-1/2">
                                 <label
                                     className="block text-white mb-2"
                                     htmlFor="email"
@@ -197,7 +197,7 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                                 />
                             </div>
                             {/* Phone Input */}
-                            <div className="w-1/2 px-2">
+                            <div className="w-full px-2 md:w-1/2">
                                 <label
                                     className="block text-white mb-2"
                                     htmlFor="phone"
@@ -269,9 +269,9 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
 
 function Box({ title, description }) {
     return (
-        <div className="bg-gray-900 p-4 w-[217px] h-[290px] lg:w-[354px] lg:h-[184px] xl:w-[530px] xl:h-[157] flex flex-col justify-between rounded-xl">
-            <h3 className="text-white font-bold mb-2 text-lg">{title}</h3>
-            <p className="text-white text-sm">{description}</p>
+        <div className="bg-gray-900 p-4 w-full h-auto flex flex-col justify-between rounded-xl md:w-[354px] lg:w-[530px] md:h-[184px] xl:h-[157px]">
+            <h3 className="text-white font-bold mb-2 text-lg md:text-xl">{title}</h3>
+            <p className="text-white text-sm md:text-base">{description}</p>
         </div>
     );
 }

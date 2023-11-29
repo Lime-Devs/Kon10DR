@@ -1,7 +1,6 @@
 import { Link, Head } from "@inertiajs/react";
 import dashboard2 from "../../images/dashboard2.jpeg";
 import gamingController from "../../images/gamingController.jpg";
-import Navbar from "@/components/Navbar";
 import navbarlogo2 from "../../images/navbarlogo2.png";
 import carousalimage from "../../images/carousalimage.jpg";
 import carousalimage2 from "../../images/carousalimage2.jpg";
@@ -10,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const settings = {
@@ -122,7 +122,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 </div>
             </div>
 
-            <div className="relative bg-gray-900 px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
+            <div className="relative bg-gray-900 w-full px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
                 <div className="flex flex-col items-center space-y-4 lg:pr-8 mx-auto text-center">
                     <img
                         src={navbarlogo2}
@@ -151,10 +151,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <img
                                 src={carousalimage3}
                                 alt="Controller"
-                                className="cursor-pointer object-cover rounded-lg shadow-lg border-2 border-purple-500 hover:border-purple-600 transition-transform duration-500 ease-in-out w-96 h-96 transform perspective-1000 rotateY-0"
+                                className="cursor-pointer object-cover rounded-lg border-4 border-purple-500 hover:border-purple-200 transition duration-500 ease-in-out w-96 h-96"
                             />
 
-                            <div className="absolute bottom-2 left-2 bg-black/40 p-1 rounded-lg z-50">
+                            <div className="cursor-pointer absolute bottom-2 left-2 bg-black/40 p-1 rounded-lg z-50">
                                 <span className="text-white font-bold text-5xl md:text-7xl drop-shadow-2xl">
                                     15,000
                                 </span>
@@ -167,9 +167,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <img
                                 src={carousalimage}
                                 alt="New Image"
-                                className="cursor-pointer object-cover rounded-lg border-2 border-purple-500 hover:border-purple-600 transition duration-500 ease-in-out w-96 h-96"
+                                className="cursor-pointer object-cover rounded-lg border-4 border-purple-500 hover:border-purple-200 transition duration-500 ease-in-out w-96 h-96"
                             />
-                            <div className="absolute bottom-2 left-2 bg-black/40 p-1 rounded-lg z-50">
+                            <div className="cursor-pointer absolute bottom-2 left-2 bg-black/40 p-1 rounded-lg z-50">
                                 <span className="text-white font-bold text-5xl md:text-7xl drop-shadow-2xl">
                                     2021
                                 </span>
@@ -182,9 +182,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             <img
                                 src={carousalimage2}
                                 alt="New Image"
-                                className="cursor-pointer object-cover rounded-lg border-2 border-purple-500 hover:border-purple-600 transition duration-500 ease-in-out w-96 h-96"
+                                className="cursor-pointer object-cover rounded-lg border-4 border-purple-500 hover:border-purple-200 transition duration-500 ease-in-out w-96 h-96"
                             />
-                            <div className="absolute bottom-2 left-2 bg-black/40 p-1 rounded-lg z-50">
+                            <div className="cursor-pointer absolute bottom-2 left-2 bg-black/40 p-1 rounded-lg z-50">
                                 <span className="text-white font-bold text-5xl md:text-7xl drop-shadow-2xl">
                                     30,000
                                 </span>
