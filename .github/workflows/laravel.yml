@@ -24,6 +24,7 @@ jobs:
       run: php artisan key:generate
     - name: Directory Permissions
       run: |
+        sudo apt update
         chmod -R 777 storage bootstrap/cache
         sudo apt install -y nodejs
         sudo npm install
