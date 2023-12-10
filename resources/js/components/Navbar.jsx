@@ -10,9 +10,16 @@ function Navbar() {
     const [playersSublistVisible, setPlayersSublistVisible] = useState(false);
     const [moreSublistVisible, setMoreSublistVisible] = useState(false);
 
-    const navMenuStyling = "font-bold text-3xl p-6 text-orange-500";
+    const navMenuStyling = "font-bangers font-sans text-2xl p-6 text-white hover:text-orange-500";
 
-    const toggleState = (setter) => () => setter((prevState) => !prevState);
+    const toggleState = (setter) => () => {
+      if (nav) {
+        setPlaySublistVisible(false);
+        setPlayersSublistVisible(false);
+        setMoreSublistVisible(false);
+      }
+      setter((prevState) => !prevState);
+    };
 
     return (
         <div className="fixed top-0 left-0 w-full z-50">
