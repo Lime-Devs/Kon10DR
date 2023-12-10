@@ -11,11 +11,11 @@ export default defineConfig({
         react(),
     ],
     server: {
-        hmr: { host: "kon10dr.us-east-1.elasticbeanstalk.com" },
+        hmr: { host: "localhost" },
         port: 3000,
         watch: {
             usePolling: true,
         },
-        host: true, // Here
+        host: true,
     },
 });

@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->binary('image');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->text('body')->nullable();
+            $table->binary('image')->nullable();
             $table->boolean('featured')->default(0);
             $table->boolean('active')->default(false);
         });

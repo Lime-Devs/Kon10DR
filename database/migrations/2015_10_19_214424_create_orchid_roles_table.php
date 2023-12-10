@@ -18,13 +18,13 @@ return new class extends Migration
             $table->jsonb('permissions')->nullable();
             $table->timestamps();
         });
-    }
+   }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        // Schema::dropIfExists('roles');
+        Schema::dropIfExists('roles');
     }
 };
