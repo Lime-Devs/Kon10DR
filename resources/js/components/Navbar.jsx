@@ -144,12 +144,12 @@ const PlaySublist = () => (
         <li>
             <NavLink href="/Tournaments">TOURNAMENTS</NavLink>
         </li>
-        <li>
+        {/* <li>
             <NavLink href="/Arenas">ARENAS</NavLink>
         </li>
         <li>
             <NavLink href="/Challenges">CHALLENGES</NavLink>
-        </li>
+        </li> */}
     </ul>
 );
 
