@@ -19,10 +19,9 @@
         "wait-on": "^7.0.1"
     },
     "dependencies": {
-        "@esbuild/linux-x64": "^0.19.2",
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
-        "@inertiajs/progress": "^0.2.7",
+        "@inertiajs/progress": "^0.1.2",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.4",
         "@vitejs/plugin-react": "^4.0.4",
@@ -31,6 +30,7 @@
         "react-dom": "^18.2.0",
         "react-icons": "^4.10.1",
         "react-responsive-carousel": "^3.2.23",
+        "react-router-dom": "^6.20.1",
         "react-slick": "^0.29.0",
         "react-youtube": "^10.1.0",
         "slick-carousel": "^1.8.1"

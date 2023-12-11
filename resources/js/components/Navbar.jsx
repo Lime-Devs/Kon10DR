@@ -76,9 +76,9 @@ function Navbar() {
                             <MoreSublist />
                         </div>
                     </div>
-                    <NavLink href="">LOG IN</NavLink>
+                    <NavLink href="/login">LOG IN</NavLink>
                     <a className="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center 
-                      justify-center px-8 font-bangers font-sans text-lg font-semibold shadow-md" href="">
+                      justify-center px-8 font-bangers font-sans text-lg font-semibold shadow-md" href="/register">
                       SIGN UP
                     </a>
                 </div>
@@ -131,13 +131,13 @@ function Navbar() {
                         {moreSublistVisible && <MoreSublist />}
 
                         <li>
-                            <NavLink href="">LOG IN</NavLink>
+                            <NavLink href="/login">LOG IN</NavLink>
                         </li>
 
                         <li>
                             <div class="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center justify-center px-8 font-bangers 
                               font-sans text-lg font-semibold shadow-md">
-                              <NavLink href="">SIGN UP</NavLink>
+                              <NavLink href="/register">SIGN UP</NavLink>
                             </div>
                         </li>
                     </ul>
