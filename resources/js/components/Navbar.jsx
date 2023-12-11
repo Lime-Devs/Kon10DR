@@ -1,8 +1,10 @@
-import { Link } from "@inertiajs/react";
 import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
 import NavLink from "./NavLink";
+
+const mobileulSubMenuStyling = "flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter"
+const mobiledivSubMenuStyling = "fixed left-0 top-0 w-full bg-black/90 px-4 py-7 flex-col z-20"
 
 function Navbar() {
     const [nav, setNav] = useState(false);
@@ -74,6 +76,11 @@ function Navbar() {
                             <MoreSublist />
                         </div>
                     </div>
+                    <NavLink href="/login">LOG IN</NavLink>
+                    <a className="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center 
+                      justify-center px-8 font-bangers font-sans text-lg font-semibold shadow-md" href="/register">
+                      SIGN UP
+                    </a>
                 </div>
                 {/* Mobile Menu Icon */}
                 <div className="block lg:hidden">
@@ -89,8 +96,8 @@ function Navbar() {
 
             {/* Mobile Menu */}
             {nav && (
-                <div className="fixed left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-20">
-                    <ul className="flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter">
+                <div className={`${mobiledivSubMenuStyling}`}>
+                    <ul className={`${mobileulSubMenuStyling}`}>
                         <li
                             className={`${navMenuStyling} cursor-pointer`}
                             onClick={toggleState(setPlaySublistVisible)}
@@ -102,6 +109,7 @@ function Navbar() {
                         <li>
                             <NavLink href="/News">NEWS</NavLink>
                         </li>
+
                         <li>
                             <NavLink href="/Watch">WATCH</NavLink>
                         </li>
@@ -121,6 +129,17 @@ function Navbar() {
                             MORE
                         </li>
                         {moreSublistVisible && <MoreSublist />}
+
+                        <li>
+                            <NavLink href="/login">LOG IN</NavLink>
+                        </li>
+
+                        <li>
+                            <div class="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center justify-center px-8 font-bangers 
+                              font-sans text-lg font-semibold shadow-md">
+                              <NavLink href="/register">SIGN UP</NavLink>
+                            </div>
+                        </li>
                     </ul>
 
                     <div className="absolute top-4 right-4 z-30">
@@ -137,7 +156,7 @@ function Navbar() {
 }
 
 const PlaySublist = () => (
-    <ul>
+    <ul className={`${mobileulSubMenuStyling}`}>
         <li>
             <NavLink href="/Games">GAMES</NavLink>
         </li>
@@ -154,7 +173,7 @@ const PlaySublist = () => (
 );
 
 const PlayersSublist = () => (
-    <ul className="space-y-2">
+    <ul className={`${mobileulSubMenuStyling}`}>
         <li>
             <NavLink href="/Teams">TEAMS</NavLink>
         </li>
@@ -165,7 +184,7 @@ const PlayersSublist = () => (
 );
 
 const MoreSublist = () => (
-    <ul>
+    <ul className={`${mobileulSubMenuStyling}`}>
         <li className="leading-relaxed">
             <NavLink href="/AboutUs">ABOUT US</NavLink>
         </li>
