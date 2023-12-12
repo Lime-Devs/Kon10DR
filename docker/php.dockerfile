@@ -1,23 +1,31 @@
+# Use PHP 8.1 with Alpine as the base image
 FROM php:8.1-fpm-alpine
 
-# Environment arguments
-ARG UID
-ARG GID
-ARG USER=appuser
-
-ENV UID=${UID}
-ENV GID=${GID}
-ENV USER=${USER}
+# Hardcode the user and group IDs
+ARG UID=1000
+ARG GID=1000
+ENV USER=laraveluser
 
 # Remove conflicting dialout group
 RUN delgroup dialout
 
-# Create user and group
-RUN if getent group ${GID} ; then echo "Group ${GID} exists"; else addgroup -g ${GID} --system ${USER}; fi
-RUN adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}
-# Modify php fpm configuration to use the new user's privileges
-RUN sed -i "s/user = www-data/user = '${USER}'/g" /usr/local/etc/php-fpm.d/www.conf
-RUN sed -i "s/group = www-data/group = '${USER}'/g" /usr/local/etc/php-fpm.d/www.conf
+# Create a group if it doesn't exist already
+RUN if getent group ${GID} ; then \
+        echo "Group with GID ${GID} exists"; \
+    else \
+        addgroup -g ${GID} nginxgroup; \
+    fi
+
+# Create user if it doesn't exist
+RUN if getent passwd ${UID} ; then \
+        echo "User with UID ${UID} exists"; \
+    else \
+        adduser -u ${UID} -G nginxgroup -D ${USER}; \
+    fi
+    
+# Modify php-fpm configuration to use the new user's privileges
+RUN sed -i "s/user = www-data/user = ${USER}/g" /usr/local/etc/php-fpm.d/www.conf
+RUN sed -i "s/group = www-data/group = nginxgroup/g" /usr/local/etc/php-fpm.d/www.conf
 RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
 # Install required packages

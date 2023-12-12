@@ -12,10 +12,14 @@ import Footer from "@/components/Footer";
 
 export default function Watch({ auth, laravelVersion, phpVersion }) {
     const videoUrls = [
-        "https://www.youtube.com/watch?v=M6PeXliz4qE",
-        "https://www.youtube.com/watch?v=M6PeXliz4qE",
-        "https://www.youtube.com/watch?v=M6PeXliz4qE",
-        "https://www.youtube.com/watch?v=M6PeXliz4qE",
+        "https://www.youtube.com/watch?v=YdGf0jvQVsM",
+        "https://www.youtube.com/watch?v=uR7SeXt8Djw",
+        "https://www.youtube.com/watch?v=MizpqbV4Wjc",
+        "https://www.youtube.com/watch?v=HhMPqrzCX3w",
+        "https://www.youtube.com/watch?v=0Za4sURGKgI",
+        "https://www.youtube.com/watch?v=QYP0rnZsyE8",
+        "https://www.youtube.com/watch?v=LzlsNWePq8o",
+        "https://www.youtube.com/watch?v=cOThRsODxek",
     ];
 
     const extractVideoID = (url) => {

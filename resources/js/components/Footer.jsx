@@ -23,13 +23,13 @@ function Footer() {
                         Every Champion was once a Kon10dr
                     </p>
                     <nav className="flex flex-wrap mb-4">
-                        <a href="#" className="mr-4 hover:text-blue-500">
+                        <a href="/" className="mr-4 hover:text-blue-500">
                             Home
                         </a>
-                        <a href="#" className="mr-4 hover:text-blue-500">
+                        <a href="/login" className="mr-4 hover:text-blue-500">
                             Log In
                         </a>
-                        <a href="#" className="mr-4 hover:text-blue-500">
+                        <a href="/href" className="mr-4 hover:text-blue-500">
                             Sign Up
                         </a>
                         <a href="#" className="mr-4 hover:text-blue-500">

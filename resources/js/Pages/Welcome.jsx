@@ -1,4 +1,4 @@
-import { Link, Head } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import dashboard2 from "../../images/dashboard2.jpeg";
 import gamingController from "../../images/gamingController.jpg";
 import navbarlogo2 from "../../images/navbarlogo2.png";
@@ -47,12 +47,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             Every Champion was once a Kon10dr so start your
                             Esports career here
                         </p>
-                        <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full border-none">
+                        <a className="bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full border-none"
+                          href="/register">
                             Sign Up
-                        </button>
-                        <button className="bg-gray-700 hover:bg-gray-600 transition duration-300 ease-in-out px-4 py-2 border border-gray-800 rounded-full">
+                        </a>
+                        <a className="bg-gray-700 hover:bg-gray-600 transition duration-300 ease-in-out px-4 py-2 border border-gray-800 rounded-full"
+                          href="/login">
                             Login
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div className="bg-gray-900 px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">

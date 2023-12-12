@@ -35,7 +35,6 @@ export default function Login({ status, canResetPassword }) {
                     {status}
                 </div>
             )}
-
             <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
@@ -89,13 +88,25 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && (
                         <Link
                             href={route("password.request")}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="underline text-sm text-gray-600 hover:text-gray-900"
                         >
                             Forgot your password?
                         </Link>
                     )}
 
-                    <PrimaryButton className="ml-4" disabled={processing}>
+                    <span className="ml-2 text-sm">
+                        <Link
+                            href={route("register")}
+                            className="text-orange-600 hover:text-blue-600 cursor-pointer"
+                        >
+                            Click Here To Register
+                        </Link>
+                    </span>
+
+                    <PrimaryButton
+                        className="ml-4 bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full border-none"
+                        disabled={processing}
+                    >
                         Log in
                     </PrimaryButton>
                 </div>
