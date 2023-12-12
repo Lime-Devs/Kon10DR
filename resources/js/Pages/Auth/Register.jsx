@@ -32,7 +32,6 @@ export default function Register() {
 
             <form
                 onSubmit={submit}
-                className="bg-transparent p-6 rounded-lg border border-orange-400"
             >
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
