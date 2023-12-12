@@ -15,6 +15,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                banger: ["Bangers", "sans-serif", ...defaultTheme.fontFamily.sans],
             },
             backgroundColor: {
                 "dark-grey": "#333333",

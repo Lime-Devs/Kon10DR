@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
-import NavLink from "./NavLink";
+
 
 const mobileulSubMenuStyling = "flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter"
 const mobiledivSubMenuStyling = "fixed left-0 top-0 w-full bg-black/90 px-4 py-7 flex-col z-20"
+const navMenuStyling = "font-banger text-lg p-6 text-white hover:text-orange-500";
+const navSubMenuStyling = "font-banger inline-flex items-center font-bangers text-lg text-white hover:text-orange-500 font-medium leading-5 transition duration-150 ease-in-out focus:outline-none"
 
 function Navbar() {
     const [nav, setNav] = useState(false);
     const [playSublistVisible, setPlaySublistVisible] = useState(false);
     const [playersSublistVisible, setPlayersSublistVisible] = useState(false);
     const [moreSublistVisible, setMoreSublistVisible] = useState(false);
-
-    const navMenuStyling = "font-bangers font-sans text-2xl p-6 text-white hover:text-orange-500";
 
     const toggleState = (setter) => () => {
       if (nav) {
@@ -25,11 +25,16 @@ function Navbar() {
 
     return (
         <div className="fixed top-0 left-0 w-full z-50">
+            {/* Add the Bangers font from Google Fonts */}
+            <link
+              href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+              rel="stylesheet"
+            />
             <div className="flex justify-between items-center p-4 h-16 bg-black/90">
                 <img
                     src={navbarlogo2}
                     alt="Navbar Logo"
-                    className="w-24 z-20 cursor-pointer"
+                    className="w-32 z-20 cursor-pointer"
                     onClick={() => {
                         window.location.href = "/";
                     }}
@@ -41,18 +46,18 @@ function Navbar() {
                         <span className={`${navMenuStyling} cursor-pointer`}>
                             PLAY
                         </span>
-                        <div className="absolute left-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
+                        <div className="absolute left-0 mt-2 min-w-64 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
                             <PlaySublist />
                         </div>
                     </div>
-                    <NavLink href="/News">NEWS</NavLink>
-                    <NavLink href="/Watch">WATCH</NavLink>
+                    <a className={`${navMenuStyling}`} href="/News">NEWS</a>
+                    <a className={`${navMenuStyling}`} href="/Watch">WATCH</a>
                     {/* PLAYERS dropdown */}
                     <div className="relative group">
                         <span className={`${navMenuStyling} cursor-pointer`}>
                             PLAYERS
                         </span>
-                        <div className="absolute left-0 mt-2 min-w-56 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
+                        <div className="absolute left-0 mt-2 min-w-64 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
                             <PlayersSublist />
                         </div>
                     </div>
@@ -76,9 +81,9 @@ function Navbar() {
                             <MoreSublist />
                         </div>
                     </div>
-                    <NavLink href="/login">LOG IN</NavLink>
-                    <a className="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center 
-                      justify-center px-8 font-bangers font-sans text-lg font-semibold shadow-md" href="/register">
+                    <a className={`${navMenuStyling}`} href="/login">LOG IN</a>
+                    <a className="font-bangers h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center 
+                      justify-center px-8 text-lg font-semibold shadow-md" href="/register">
                       SIGN UP
                     </a>
                 </div>
@@ -107,11 +112,11 @@ function Navbar() {
                         {playSublistVisible && <PlaySublist />}
 
                         <li>
-                            <NavLink href="/News">NEWS</NavLink>
+                            <a className={`${navMenuStyling}`} href="/News">NEWS</a>
                         </li>
 
                         <li>
-                            <NavLink href="/Watch">WATCH</NavLink>
+                            <a className={`${navMenuStyling}`} href="/Watch">WATCH</a>
                         </li>
 
                         <li
@@ -131,13 +136,13 @@ function Navbar() {
                         {moreSublistVisible && <MoreSublist />}
 
                         <li>
-                            <NavLink href="/login">LOG IN</NavLink>
+                            <a className={`${navMenuStyling}`} href="/login">LOG IN</a>
                         </li>
 
                         <li>
                             <div class="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center justify-center px-8 font-bangers 
                               font-sans text-lg font-semibold shadow-md">
-                              <NavLink href="/register">SIGN UP</NavLink>
+                              <a className={`${navMenuStyling}`} href="/register">SIGN UP</a>
                             </div>
                         </li>
                     </ul>
@@ -158,16 +163,16 @@ function Navbar() {
 const PlaySublist = () => (
     <ul className={`${mobileulSubMenuStyling}`}>
         <li>
-            <NavLink href="/Games">GAMES</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/Games">GAMES</a>
         </li>
         <li>
-            <NavLink href="/Tournaments">TOURNAMENTS</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/Tournaments">TOURNAMENTS</a>
         </li>
         {/* <li>
-            <NavLink href="/Arenas">ARENAS</NavLink>
+            <a className={`${navMenuStyling}`} href="/Arenas">ARENAS</a>
         </li>
         <li>
-            <NavLink href="/Challenges">CHALLENGES</NavLink>
+            <a className={`${navMenuStyling}`} href="/Challenges">CHALLENGES</a>
         </li> */}
     </ul>
 );
@@ -175,10 +180,10 @@ const PlaySublist = () => (
 const PlayersSublist = () => (
     <ul className={`${mobileulSubMenuStyling}`}>
         <li>
-            <NavLink href="/Teams">TEAMS</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/Teams">TEAMS</a>
         </li>
         <li className="whitespace-nowrap">
-            <NavLink href="/FreeAgents">FREE AGENTS</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/FreeAgents">FREE AGENTS</a>
         </li>
     </ul>
 );
@@ -186,13 +191,13 @@ const PlayersSublist = () => (
 const MoreSublist = () => (
     <ul className={`${mobileulSubMenuStyling}`}>
         <li className="leading-relaxed">
-            <NavLink href="/AboutUs">ABOUT US</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/AboutUs">ABOUT US</a>
         </li>
         <li className="leading-relaxed">
-            <NavLink href="/TermsOfUse">TERMS OF USE</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/TermsOfUse">TERMS OF USE</a>
         </li>
         <li className="leading-relaxed">
-            <NavLink href="/PrivacyPolicy">PRIVACY POLICY</NavLink>
+            <a className={`${navSubMenuStyling}`} href="/PrivacyPolicy">PRIVACY POLICY</a>
         </li>
     </ul>
 );
