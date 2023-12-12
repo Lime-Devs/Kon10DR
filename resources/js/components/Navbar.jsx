@@ -5,7 +5,7 @@ import navbarlogo2 from "../../images/navbarlogo2.png";
 
 const mobileulSubMenuStyling = "flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter"
 const mobiledivSubMenuStyling = "fixed left-0 top-0 w-full bg-black/90 px-4 py-7 flex-col z-20"
-const navMenuStyling = "font-banger text-lg p-6 text-white hover:text-orange-500";
+const navMenuStyling = "font-banger text-lg text-white hover:text-orange-500";
 const navSubMenuStyling = "font-banger inline-flex items-center font-bangers text-lg text-white hover:text-orange-500 font-medium leading-5 transition duration-150 ease-in-out focus:outline-none"
 
 function Navbar() {
@@ -71,7 +71,7 @@ function Navbar() {
                             MORE
                         </span>
                         <div
-                            className={`absolute left-0 lg:left-auto lg:right-0 bg-black/90 rounded-lg p-2 z-10 ${
+                            className={`absolute left-0 mt-2 min-w-full bg-black/90 rounded-lg p-2 z-10 ${
                                 moreSublistVisible ? "block" : "hidden"
                             }`}
                             onMouseOver={() => setMoreSublistVisible(true)}
@@ -82,7 +82,7 @@ function Navbar() {
                         </div>
                     </div>
                     <a className={`${navMenuStyling}`} href="/login">LOG IN</a>
-                    <a className="font-bangers h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center 
+                    <a className="font-bangers h-14 text-white tracking-wide bg-orange-500 rounded-full flex items-center 
                       justify-center px-8 text-lg font-semibold shadow-md" href="/register">
                       SIGN UP
                     </a>
@@ -142,7 +142,7 @@ function Navbar() {
                         <li>
                             <div class="h-16 text-white tracking-wide bg-orange-500 rounded-full flex items-center justify-center px-8 font-bangers 
                               font-sans text-lg font-semibold shadow-md">
-                              <a className={`${navMenuStyling}`} href="/register">SIGN UP</a>
+                              <a className={`font-sans ${navMenuStyling}`} href="/register">SIGN UP</a>
                             </div>
                         </li>
                     </ul>
