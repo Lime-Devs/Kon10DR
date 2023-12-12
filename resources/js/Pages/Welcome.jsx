@@ -1,4 +1,5 @@
 import { Head } from "@inertiajs/react";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import dashboard2 from "../../images/dashboard2.jpeg";
 import gamingController from "../../images/gamingController.jpg";
 import navbarlogo2 from "../../images/navbarlogo2.png";
@@ -27,6 +28,16 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
     return (
         <>
+        <AuthenticatedLayout
+            user={auth.user}
+            header={
+                <h2 className="text-lg sm:font-semibold text-gray-800 leading-tight">
+                    Dashboard
+                </h2>
+            }
+        >
+
+        </AuthenticatedLayout>
             <Head title="Welcome" />
             <Navbar />
             <div
