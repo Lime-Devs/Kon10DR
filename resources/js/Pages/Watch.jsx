@@ -2,8 +2,8 @@ import { Head } from "@inertiajs/react";
 import Navbar from "@/components/Navbar";
 import {
     FaInstagram,
-    FaFacebook,
-    FaLinkedin,
+    FaTwitch,
+    FaYoutube,
     FaTwitter,
     FaDiscord,
 } from "react-icons/fa";
@@ -39,15 +39,36 @@ export default function Watch({ auth, laravelVersion, phpVersion }) {
                     <div className="text-center mb-8">
                         <h3 className="text-white mb-2">Share</h3>
                         <div className="flex justify-center items-center mb-4">
-                            <button className="hover:bg-gray-800 p-2 rounded mr-2 transition">
-                                <FaTwitter className="text-white" />
-                            </button>
-                            <button className="hover:bg-gray-800 p-2 rounded mr-2 transition">
-                                <FaFacebook className="text-white" />
-                            </button>
-                            <button className="hover:bg-gray-800 p-2 rounded transition">
-                                <FaLinkedin className="text-white" />
-                            </button>
+                            <a
+                                href="https://www.instagram.com/_kon10dr/"
+                                className="text-blue-500 hover:text-blue-600"
+                            >
+                                <FaInstagram size={24} />
+                            </a>
+                            <a
+                                href="https://www.twitch.tv/kon10dr"
+                                className="text-blue-500 hover:text-blue-600"
+                            >
+                                <FaTwitch size={24} />
+                            </a>
+                            <a
+                                href="https://www.youtube.com/kon10dr"
+                                className="text-blue-500 hover:text-blue-600"
+                            >
+                                <FaYoutube size={24} />
+                            </a>
+                            <a
+                                href="https://twitter.com/kon10dr"
+                                className="text-blue-500 hover:text-blue-600"
+                            >
+                                <FaTwitter size={24} />
+                            </a>
+                            <a
+                                href="https://discord.com/invite/3FZY7BhyHH"
+                                className="text-blue-500 hover:text-blue-600"
+                            >
+                                <FaDiscord size={24} />
+                            </a>
                         </div>
                         <p className="text-white">
                             Content!! Content!! Content!!

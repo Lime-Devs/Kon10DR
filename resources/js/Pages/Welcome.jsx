@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import BG2 from "../../images/BG2.png";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const settings = {
@@ -24,6 +25,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         centerPadding: "80px",
         focusOnSelect: true,
     };
+
+    const aspectRatioPercent = (9 / 16) * 100;
 
     return (
         <>
@@ -47,12 +50,16 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             Every Champion was once a Kon10dr so start your
                             Esports career here
                         </p>
-                        <a className="bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full border-none"
-                          href="/register">
+                        <a
+                            className="bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full border-none"
+                            href="/register"
+                        >
                             Sign Up
                         </a>
-                        <a className="bg-gray-700 hover:bg-gray-600 transition duration-300 ease-in-out px-4 py-2 border border-gray-800 rounded-full"
-                          href="/login">
+                        <a
+                            className="bg-gray-700 hover:bg-gray-600 transition duration-300 ease-in-out px-4 py-2 border border-gray-800 rounded-full"
+                            href="/login"
+                        >
                             Login
                         </a>
                     </div>
@@ -99,31 +106,43 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     </div>
                 </div>
             </div>
-            <div className="relative z-10 pt-20 p-4 flex flex-col items-center">
-                <div className="bg-opacity-60 p-20 rounded-lg text-center backdrop-blur-sm border border-blue-500">
-                    <h2 className="text-3xl mb-4 text-white font-bold">
-                        Never miss a beat.
-                    </h2>
-                    <p className="mb-6 text-white">
-                        Sign up for our newsletter and get access to the best
-                        things first.
-                    </p>
-                    <form className="inline-flex items-center border-2 border-orange-500 rounded-full py-1 w-full mx-auto bg-black bg-opacity-60 p-2 backdrop-blur-sm">
-                        <input
-                            type="email"
-                            placeholder="e.g. name@site.com"
-                            className="flex-grow p-3 text-white outline-none focus:outline-none focus:ring-0 border-0 rounded-l-full bg-black bg-opacity-0 "
-                        />
-                        <button
-                            type="submit"
-                            className="bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full"
-                        >
-                            Sign Up
-                        </button>
-                    </form>
-                </div>
-            </div>
+            {/* Commenting out the original 'Never miss a beat' section
+<div className="relative z-10 pt-20 p-4 flex flex-col items-center">
+    <div className="bg-opacity-60 p-20 rounded-lg text-center backdrop-blur-sm border border-blue-500">
+        <h2 className="text-3xl mb-4 text-white font-bold">
+            Never miss a beat.
+        </h2>
+        <p className="mb-6 text-white">
+            Sign up for our newsletter and get access to the best things first.
+        </p>
+        <form className="inline-flex items-center border-2 border-orange-500 rounded-full py-1 w-full mx-auto bg-black bg-opacity-60 p-2 backdrop-blur-sm">
+            <input
+                type="email"
+                placeholder="e.g. name@site.com"
+                className="flex-grow p-3 text-white outline-none focus:outline-none focus:ring-0 border-0 rounded-l-full bg-black bg-opacity-0 "
+            />
+            <button
+                type="submit"
+                className="bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full"
+            >
+                Sign Up
+            </button>
+        </form>
+    </div>
+</div>
+*/}
 
+            <div
+                className="relative w-full"
+                style={{ paddingTop: `${aspectRatioPercent}%` }}
+            >
+                <img
+                    src={BG2}
+                    alt="Banner"
+                    className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+                    style={{ top: "50%", transform: "translateY(-50%)" }}
+                />
+            </div>
             <div className="relative bg-gray-900 w-full px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
                 <div className="flex flex-col items-center space-y-4 lg:pr-8 mx-auto text-center">
                     <img
@@ -143,9 +162,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         vibrant community and take your esports journey to new
                         heights!
                     </div>
-                    <button className="relative bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 rounded-full border-none">
-                        Get Started
-                    </button>
+                    <a
+                        href="/register"
+                        className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full inline-block text-center"
+                    >
+                        Get Started!
+                    </a>
                 </div>
                 <div className="relative overflow-hidden rounded-lg mb-4 lg:mb-0 w-full lg:w-1/2">
                     <Slider {...settings}>
@@ -239,9 +261,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
-                                        Choose Plan
-                                    </button>
+                                    <a
+                                        href="/register"
+                                        className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full inline-block text-center"
+                                    >
+                                        Sign Up!
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -281,9 +306,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
-                                        Choose Plan
-                                    </button>
+                                    <a
+                                        href="/register"
+                                        className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full inline-block text-center"
+                                    >
+                                        Sign Up!
+                                    </a>
                                 </div>
                             </div>
                         </div>

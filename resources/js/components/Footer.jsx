@@ -1,7 +1,7 @@
 import {
     FaInstagram,
-    FaFacebook,
-    FaLinkedin,
+    FaTwitch,
+    FaYoutube,
     FaTwitter,
     FaDiscord,
 } from "react-icons/fa";
@@ -29,7 +29,7 @@ function Footer() {
                         <a href="/login" className="mr-4 hover:text-blue-500">
                             Log In
                         </a>
-                        <a href="/href" className="mr-4 hover:text-blue-500">
+                        <a href="/register" className="mr-4 hover:text-blue-500">
                             Sign Up
                         </a>
                         <a href="#" className="mr-4 hover:text-blue-500">
@@ -45,19 +45,34 @@ function Footer() {
                     </p>
                 </div>
                 <div className="flex space-x-4 mt-4 sm:mt-0">
-                    <a href="#" className="text-blue-500 hover:text-blue-600">
+                    <a
+                        href="https://www.instagram.com/_kon10dr/"
+                        className="text-blue-500 hover:text-blue-600"
+                    >
                         <FaInstagram size={24} />
                     </a>
-                    <a href="#" className="text-blue-500 hover:text-blue-600">
-                        <FaFacebook size={24} />
+                    <a
+                        href="https://www.twitch.tv/kon10dr"
+                        className="text-blue-500 hover:text-blue-600"
+                    >
+                        <FaTwitch size={24} />
                     </a>
-                    <a href="#" className="text-blue-500 hover:text-blue-600">
-                        <FaLinkedin size={24} />
+                    <a
+                        href="https://www.youtube.com/kon10dr"
+                        className="text-blue-500 hover:text-blue-600"
+                    >
+                        <FaYoutube size={24} />
                     </a>
-                    <a href="#" className="text-blue-500 hover:text-blue-600">
+                    <a
+                        href="https://twitter.com/kon10dr"
+                        className="text-blue-500 hover:text-blue-600"
+                    >
                         <FaTwitter size={24} />
                     </a>
-                    <a href="#" className="text-blue-500 hover:text-blue-600">
+                    <a
+                        href="https://discord.com/invite/3FZY7BhyHH"
+                        className="text-blue-500 hover:text-blue-600"
+                    >
                         <FaDiscord size={24} />
                     </a>
                 </div>
