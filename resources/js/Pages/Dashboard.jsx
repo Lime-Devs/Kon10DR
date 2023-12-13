@@ -47,36 +47,13 @@ export default function Dashboard({ auth }) {
                                 Every Champion was once a Kon10dr so start your
                                 Esports career here
                             </p>
+                            <p style={{
+                              color: "orange",
+                              fontSize: "4em",
+                              fontWeight: "bold"
+                            }}> Coming Soon!! </p>
                         </div>
                     </div>
-
-                    {/* Games Cards */}
-                    <div className="mb-4 sm:mb-8 bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center">
-                            <h3 className="mb-2 sm:mb-0 text-gray-900 font-medium sm:font-semibold">
-                                Games
-                            </h3>
-                            <button className="bg-purple-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-purple-800">
-                                View All
-                            </button>
-                        </div>
-                        <div className="p-4 sm:p-6 text-gray-900">
-                            Games Cards Here
-                        </div>
-                    </div>
-
-                    {renderSection(
-                        "Popular Tournaments",
-                        "List of Popular Tournaments Here"
-                    )}
-                    {renderSection(
-                        "Popular Ladders",
-                        "List of Popular Ladders Here"
-                    )}
-                    {renderSection(
-                        "Popular Spaces",
-                        "List of Popular Spaces Here"
-                    )}
                 </div>
             </div>
         </AuthenticatedLayout>

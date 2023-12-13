@@ -50,13 +50,13 @@ function Navbar() {
                             <PlaySublist />
                         </div>
                     </div>
-                    <a className={`${navMenuStyling}`} href="/News">NEWS</a>
+                    {/* <a className={`${navMenuStyling}`} href="/News">NEWS</a> */}
                     <a className={`${navMenuStyling}`} href="/Watch">WATCH</a>
                     {/* PLAYERS dropdown */}
                     <div className="relative group">
-                        <span className={`${navMenuStyling} cursor-pointer`}>
+                        {/* <span className={`${navMenuStyling} cursor-pointer`}>
                             PLAYERS
-                        </span>
+                        </span> */}
                         <div className="absolute left-0 mt-2 min-w-64 bg-black/90 rounded-lg p-2 z-10 group-hover:block hidden">
                             <PlayersSublist />
                         </div>
@@ -111,20 +111,20 @@ function Navbar() {
                         </li>
                         {playSublistVisible && <PlaySublist />}
 
-                        <li>
+                        {/* <li>
                             <a className={`${navMenuStyling}`} href="/News">NEWS</a>
-                        </li>
+                        </li> */}
 
                         <li>
                             <a className={`${navMenuStyling}`} href="/Watch">WATCH</a>
                         </li>
 
-                        <li
+                        {/* <li
                             className={`${navMenuStyling} cursor-pointer`}
                             onClick={toggleState(setPlayersSublistVisible)}
                         >
                             PLAYERS
-                        </li>
+                        </li> */}
                         {playersSublistVisible && <PlayersSublist />}
 
                         <li
@@ -179,12 +179,12 @@ const PlaySublist = () => (
 
 const PlayersSublist = () => (
     <ul className={`${mobileulSubMenuStyling}`}>
-        <li>
+        {/* <li>
             <a className={`${navSubMenuStyling}`} href="/Teams">TEAMS</a>
-        </li>
-        <li className="whitespace-nowrap">
+        </li> */}
+        {/* <li className="whitespace-nowrap">
             <a className={`${navSubMenuStyling}`} href="/FreeAgents">FREE AGENTS</a>
-        </li>
+        </li> */}
     </ul>
 );
 
@@ -193,12 +193,12 @@ const MoreSublist = () => (
         <li className="leading-relaxed">
             <a className={`${navSubMenuStyling}`} href="/AboutUs">ABOUT US</a>
         </li>
-        <li className="leading-relaxed">
+        {/* <li className="leading-relaxed">
             <a className={`${navSubMenuStyling}`} href="/TermsOfUse">TERMS OF USE</a>
-        </li>
-        <li className="leading-relaxed">
+        </li> */}
+        {/* <li className="leading-relaxed">
             <a className={`${navSubMenuStyling}`} href="/PrivacyPolicy">PRIVACY POLICY</a>
-        </li>
+        </li> */}
     </ul>
 );
 
